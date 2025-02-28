@@ -1,0 +1,92 @@
+---
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="hero-section pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+  <div class="animated-background"></div>
+  <div class="max-w-6xl mx-auto relative z-10">
+    <div class="flex flex-col items-center">
+      <div class="w-48 h-48 mb-8 rounded-full overflow-hidden shadow-xl">
+        <img 
+          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces&auto=format&q=90" 
+          alt="John Doe"
+          class="w-full h-full object-cover"
+          width="192"
+          height="192"
+        />
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 text-center">
+        {t('hero.title')}
+      </h1>
+      <p class="text-xl text-gray-600 mb-8 max-w-2xl text-center">
+        {t('hero.subtitle')}
+      </p>
+      <div class="flex gap-4">
+        <a
+          href="#contact"
+          class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          {t('hero.contact')}
+        </a>
+        <a
+          href="#projects"
+          class="bg-gray-100 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors"
+        >
+          {t('hero.projects')}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    background-color: #f8fafc;
+  }
+
+  .animated-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: linear-gradient(
+      45deg,
+      rgba(59, 130, 246, 0.1),
+      rgba(147, 51, 234, 0.1),
+      rgba(59, 130, 246, 0.1)
+    );
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  .animated-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.5)
+    );
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>

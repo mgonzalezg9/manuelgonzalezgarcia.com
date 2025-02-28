@@ -1,0 +1,164 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import { getLangFromUrl, useTranslations } from '../../../utils/i18n';
+import { languages } from '../../../i18n/ui';
+
+export function getStaticPaths() {
+  const projects = ['ecommerce-platform', 'task-management', 'ai-content-generator'];
+  return Object.keys(languages).flatMap((lang) => 
+    projects.map((project) => ({
+      params: { lang, project }
+    }))
+  );
+}
+
+const { project } = Astro.params;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const projects = {
+  'ecommerce-platform': {
+    id: 1,
+    title: t('project1.title'),
+    description: t('project1.description'),
+    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&h=600',
+    tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    features: [
+      'Real-time inventory management',
+      'Secure payment processing',
+      'User authentication and authorization',
+      'Product search and filtering',
+      'Order tracking and management',
+      'Admin dashboard'
+    ],
+    demoUrl: 'https://demo-ecommerce.example.com',
+    githubUrl: 'https://github.com/example/ecommerce'
+  },
+  'task-management': {
+    id: 2,
+    title: t('project2.title'),
+    description: t('project2.description'),
+    image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&h=600',
+    tech: ['React', 'Socket.io', 'Express', 'PostgreSQL'],
+    features: [
+      'Real-time task updates',
+      'Team collaboration',
+      'Project analytics',
+      'File sharing',
+      'Calendar integration',
+      'Mobile responsive design'
+    ],
+    demoUrl: 'https://demo-tasks.example.com',
+    githubUrl: 'https://github.com/example/tasks'
+  },
+  'ai-content-generator': {
+    id: 3,
+    title: t('project3.title'),
+    description: t('project3.description'),
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&h=600',
+    tech: ['React', 'OpenAI API', 'Node.js', 'Redis'],
+    features: [
+      'AI-powered content generation',
+      'Multiple content formats',
+      'SEO optimization',
+      'Content history',
+      'Export options',
+      'API integration'
+    ],
+    demoUrl: 'https://demo-ai.example.com',
+    githubUrl: 'https://github.com/example/ai-content'
+  }
+};
+
+const projectData = projects[project];
+---
+
+<Layout title={`${projectData.title} - John Doe`}>
+  <Header />
+  <main class="pt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="mb-8">
+        <a 
+          href={`/${lang}#projects`}
+          class="text-blue-600 hover:text-blue-700 inline-flex items-center"
+        >
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          {t('projects.title')}
+        </a>
+      </div>
+
+      <img 
+        src={projectData.image} 
+        alt={projectData.title}
+        class="w-full h-[400px] object-cover rounded-xl mb-8"
+      />
+
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        {projectData.title}
+      </h1>
+
+      <p class="text-xl text-gray-600 mb-8">
+        {projectData.description}
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-12 mb-12">
+        <div>
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4">
+            {t('projects.techStack')}
+          </h2>
+          <div class="flex flex-wrap gap-2">
+            {projectData.tech.map((tech) => (
+              <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4">
+            Features
+          </h2>
+          <ul class="space-y-2">
+            {projectData.features.map((feature) => (
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <a
+          href={projectData.demoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-flex items-center"
+        >
+          {t('projects.liveDemo')}
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+          </svg>
+        </a>
+        <a
+          href={projectData.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-gray-100 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors inline-flex items-center"
+        >
+          {t('projects.sourceCode')}
+          <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>

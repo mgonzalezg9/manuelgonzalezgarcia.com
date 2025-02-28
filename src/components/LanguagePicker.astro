@@ -1,0 +1,62 @@
+---
+import { languages } from '../i18n/ui';
+
+const { currentLang } = Astro.props;
+const { pathname } = Astro.url;
+
+const flags = {
+  en: {
+    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/2560px-Flag_of_the_United_Kingdom_%283-5%29.svg.png",
+    label: 'English'
+  },
+  es: {
+    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Flag_of_Spain_%28civil%29.svg/1280px-Flag_of_Spain_%28civil%29.svg.png",
+    label: 'Español'
+  }
+};
+
+const languageOptions = Object.entries(languages).map(([lang]) => {
+  const path = pathname.replace(/^\/[^/]+/, '');
+  const href = lang === 'en' ? path || '/' : `/${lang}${path || '/'}`;
+  return {
+    lang,
+    href,
+    ...flags[lang]
+  };
+});
+---
+
+<div class="relative inline-block text-left">
+  <select
+    class="block w-full pl-10 pr-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 appearance-none"
+    onChange="window.location.href = this.value"
+  >
+    {languageOptions.map(({ lang, href, label }) => (
+      <option value={href} selected={currentLang === lang}>
+        {label}
+      </option>
+    ))}
+  </select>
+  <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-2">
+     <img 
+        src={flags[currentLang].icon} 
+        alt={`${flags[currentLang].label} logo`}
+        class="max-w-full max-h-full object-contain"
+        width="24"
+        height="24"
+      />
+  </div>
+  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+    <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+</div>
+
+<style>
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+</style>
