@@ -12,7 +12,7 @@ const t = useTranslations(lang);
   <div class="max-w-6xl mx-auto relative z-10">
     <div class="flex flex-col items-center">
       <div class="w-48 h-48 mb-8 rounded-full overflow-hidden shadow-xl">
-        <Image src={profilePicture} alt="Manuel Gonzalez" width="192" height="192" />
+        <Image class="transition-transform duration-500 hover:scale-110" src={profilePicture} alt="Manuel Gonzalez" width="192" height="192" />
       </div>
       <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 text-center">
         {t('hero.title')}
@@ -23,13 +23,13 @@ const t = useTranslations(lang);
       <div class="flex gap-4">
         <a
           href="#contact"
-          class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+          class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-transform duration-500 hover:scale-110"
         >
           {t('hero.contact')}
         </a>
         <a
           href="#projects"
-          class="bg-gray-100 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors"
+          class="bg-gray-100 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-200 transition-transform duration-500 hover:scale-110"
         >
           {t('hero.projects')}
         </a>
