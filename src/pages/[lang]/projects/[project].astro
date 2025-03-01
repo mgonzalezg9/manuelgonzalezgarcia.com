@@ -14,11 +14,11 @@ type Project = {
   features: string[];
   demoUrl: string;
   githubUrl: string;
-}
+};
 
 export function getStaticPaths() {
   const projects = ['ecommerce-platform', 'task-management', 'ai-content-generator'];
-  return Object.keys(languages).flatMap((lang) => 
+  return Object.keys(languages).flatMap((lang) =>
     projects.map((project) => ({
       params: { lang, project }
     }))

@@ -1,7 +1,7 @@
 ---
-import { getLangFromUrl, useTranslations } from '../utils/i18n';
-import { CSSIcon, DockerIcon, GitIcon, NodeIcon, PythonIcon, ReactIcon, SQLIcon, AWSIcon, VueIcon } from '../icons';
-import SkillBar from './SkillBar.astro';
+import { getLangFromUrl, useTranslations } from '../../utils/i18n';
+import { CSSIcon, DockerIcon, GitIcon, NodeIcon, PythonIcon, ReactIcon, SQLIcon, AWSIcon, VueIcon } from '../../icons';
+import SkillBar from '../ui/SkillBar.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
