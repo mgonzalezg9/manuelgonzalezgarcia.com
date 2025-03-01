@@ -1,6 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import { getLangFromUrl, useTranslations } from '../../utils/i18n';
+import CarsbarterLogo from '../../assets/carsbarter_logo.png';
+import InbentusLogo from '../../assets/inbentus_logo.jpg';
+import KaironLabsLogo from '../../assets/kairon_labs_logo.jpeg';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -12,7 +15,7 @@ const companies = [
     period: t('experience.company1.period'),
     description: t('experience.company1.description'),
     current: true,
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png',
+    logo: KaironLabsLogo,
   },
   {
     name: t('experience.company2.name'),
@@ -20,7 +23,7 @@ const companies = [
     period: t('experience.company2.period'),
     description: t('experience.company2.description'),
     current: false,
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1200px-Microsoft_logo_%282012%29.svg.png',
+    logo: InbentusLogo,
   },
   {
     name: t('experience.company3.name'),
@@ -28,7 +31,7 @@ const companies = [
     period: t('experience.company3.period'),
     description: t('experience.company3.description'),
     current: false,
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Amazon_logo.svg/2560px-Amazon_logo.svg.png',
+    logo: CarsbarterLogo,
   },
 ];
 ---
@@ -41,15 +44,12 @@ const companies = [
         <div class="bg-white rounded-lg shadow-md p-6">
           <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
             <div class="flex items-center gap-4">
-              <div class="w-16 h-16 flex-shrink-0 bg-gray-50 rounded-lg p-2 flex items-center justify-center">
-                <Image 
-                  src={company.logo} 
-                  alt={`${company.name} logo`}
-                  class="max-w-full max-h-full"
-                  width="64"
-                  height="64"
-                />
-              </div>
+              <Image 
+                class="bg-gray-50 rounded-lg flex items-center justify-center"
+                src={company.logo}
+                alt={`${company.name} logo`}
+                width="50"
+              />
               <div>
                 <h3 class="text-xl font-semibold text-gray-900">{company.name}</h3>
                 <p class="text-lg text-blue-600">{company.role}</p>
@@ -64,7 +64,7 @@ const companies = [
               )}
             </div>
           </div>
-          <p class="text-gray-600 ml-20">{company.description}</p>
+          <p class="text-gray-600 ml-16">{company.description}</p>
         </div>
       ))}
     </div>
