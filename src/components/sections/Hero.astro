@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { getLangFromUrl, useTranslations } from '../../utils/i18n';
-import profilePicture from '../assets/profile_pic.jpeg';
+import profilePicture from '../../assets/profile_pic.jpeg';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);

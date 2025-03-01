@@ -1,6 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import Header from '../../../components/Header.astro';
+import Header from '../../../components/sections/Header.astro';
 import { getLangFromUrl, useTranslations } from '../../../utils/i18n';
 import { languages } from '../../../i18n/ui';
 import { Image } from 'astro:assets';
@@ -37,12 +37,12 @@ const projects: Record<string, Project> = {
     image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&h=600',
     tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
     features: [
-      'Real-time inventory management',
-      'Secure payment processing',
-      'User authentication and authorization',
-      'Product search and filtering',
-      'Order tracking and management',
-      'Admin dashboard'
+      t('project1.feature1'),
+      t('project1.feature2'),
+      t('project1.feature3'),
+      t('project1.feature4'),
+      t('project1.feature5'),
+      t('project1.feature6')
     ],
     demoUrl: 'https://demo-ecommerce.example.com',
     githubUrl: 'https://github.com/example/ecommerce'
@@ -54,12 +54,12 @@ const projects: Record<string, Project> = {
     image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&h=600',
     tech: ['React', 'Socket.io', 'Express', 'PostgreSQL'],
     features: [
-      'Real-time task updates',
-      'Team collaboration',
-      'Project analytics',
-      'File sharing',
-      'Calendar integration',
-      'Mobile responsive design'
+      t('project2.feature1'),
+      t('project2.feature2'),
+      t('project2.feature3'),
+      t('project2.feature4'),
+      t('project2.feature5'),
+      t('project2.feature6')
     ],
     demoUrl: 'https://demo-tasks.example.com',
     githubUrl: 'https://github.com/example/tasks'
@@ -71,12 +71,12 @@ const projects: Record<string, Project> = {
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&h=600',
     tech: ['React', 'OpenAI API', 'Node.js', 'Redis'],
     features: [
-      'AI-powered content generation',
-      'Multiple content formats',
-      'SEO optimization',
-      'Content history',
-      'Export options',
-      'API integration'
+      t('project3.feature1'),
+      t('project3.feature2'),
+      t('project3.feature3'),
+      t('project3.feature4'),
+      t('project3.feature5'),
+      t('project3.feature6')
     ],
     demoUrl: 'https://demo-ai.example.com',
     githubUrl: 'https://github.com/example/ai-content'
@@ -134,7 +134,7 @@ const projectData = projects[project];
 
         <div>
           <h2 class="text-2xl font-semibold text-gray-900 mb-4">
-            Features
+            {t('projects.features')}
           </h2>
           <ul class="space-y-2">
             {projectData.features.map((feature) => (
