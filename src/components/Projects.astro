@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { getLangFromUrl, useTranslations } from '../utils/i18n';
 
 const lang = getLangFromUrl(Astro.url);
@@ -39,10 +40,12 @@ const projects = [
       {projects.map((project) => (
         <div class="bg-white rounded-lg shadow-md overflow-hidden project-card transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
           <div class="aspect-video overflow-hidden">
-            <img 
+            <Image
               src={project.image} 
               alt={project.title}
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              class="transition-transform duration-500 hover:scale-110"
+              width={800}
+              height={450}
             />
           </div>
           <div class="p-6">

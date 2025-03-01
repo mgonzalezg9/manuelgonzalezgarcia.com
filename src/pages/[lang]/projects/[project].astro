@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/Header.astro';
 import { getLangFromUrl, useTranslations } from '../../../utils/i18n';
 import { languages } from '../../../i18n/ui';
+import { Image } from 'astro:assets';
 
 export function getStaticPaths() {
   const projects = ['ecommerce-platform', 'task-management', 'ai-content-generator'];
@@ -90,10 +91,12 @@ const projectData = projects[project];
         </a>
       </div>
 
-      <img 
+      <Image
         src={projectData.image} 
         alt={projectData.title}
-        class="w-full h-[400px] object-cover rounded-xl mb-8"
+        class="w-full rounded-xl mb-8"
+        height={400}
+        width={1200}
       />
 
       <h1 class="text-4xl font-bold text-gray-900 mb-4">
