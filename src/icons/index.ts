@@ -8,4 +8,3 @@ export { default as DockerIcon } from './DockerIcon.astro';
 export { default as AWSIcon } from './AWSIcon.astro';
 export { default as GitIcon } from './GitIcon.astro';
 export { default as VueIcon } from './VueIcon.astro';
-export { default as NextIcon } from './NextIcon.astro';

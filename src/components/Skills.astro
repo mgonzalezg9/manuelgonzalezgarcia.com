@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '../utils/i18n';
 import { CSSIcon, DockerIcon, GitIcon, NodeIcon, PythonIcon, ReactIcon, SQLIcon, AWSIcon, VueIcon } from '../icons';
+import SkillBar from './SkillBar.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -13,96 +14,69 @@ const t = useTranslations(lang);
       <div class="p-6 bg-gray-50 rounded-lg">
         <h3 class="text-xl font-semibold text-gray-900 mb-4">Frontend</h3>
         <ul class="space-y-2">
-          <li class="flex items-center gap-2">
-            <span class="w-24 flex items-center">
+          <li>
+            <SkillBar progress="90">
               <ReactIcon class="w-6 h-6 mr-2" />
               React
-            </span>
-            <div class="flex-1 bg-gray-200 rounded-full h-2">
-              <div class="w-[90%] bg-blue-600 h-2 rounded-full"></div>
-            </div>
+            </SkillBar>
           </li>
-          <li class="flex items-center gap-2">
-            <span class="w-24 flex items-center">
+          <li>
+            <SkillBar progress="75">
               <VueIcon class="w-6 h-6 mr-2" />
               Vue.js
-            </span>
-            <div class="flex-1 bg-gray-200 rounded-full h-2">
-              <div class="w-[75%] bg-blue-600 h-2 rounded-full"></div>
-            </div>
+            </SkillBar>
           </li>
-          <li class="flex items-center gap-2">
-            <span class="w-24 flex items-center">
+          <li>
+            <SkillBar progress="80">
               <CSSIcon class="w-6 h-6 mr-2" />
               CSS/SCSS
-            </span>
-            <div class="flex-1 bg-gray-200 rounded-full h-2">
-              <div class="w-[80%] bg-blue-600 h-2 rounded-full"></div>
-            </div>
+            </SkillBar>
           </li>
         </ul>
       </div>
       <div class="p-6 bg-gray-50 rounded-lg">
         <h3 class="text-xl font-semibold text-gray-900 mb-4">Backend</h3>
         <ul class="space-y-2">
-          <li class="flex items-center gap-2">
-            <span class="w-24 flex items-center">
+          <li>
+            <SkillBar progress="88">
               <NodeIcon class="w-6 h-6 mr-2" />
               Node.js
-            </span>
-            <div class="flex-1 bg-gray-200 rounded-full h-2">
-              <div class="w-[88%] bg-blue-600 h-2 rounded-full"></div>
-            </div>
+            </SkillBar>
           </li>
-          <li class="flex items-center gap-2">
-            <span class="w-24 flex items-center">
+          <li>
+            <SkillBar progress="75">
               <PythonIcon class="w-6 h-6 mr-2" />
               Python
-            </span>
-            <div class="flex-1 bg-gray-200 rounded-full h-2">
-              <div class="w-[75%] bg-blue-600 h-2 rounded-full"></div>
-            </div>
+            </SkillBar>
           </li>
-          <li class="flex items-center gap-2">
-            <span class="w-24 flex items-center">
+          <li>
+            <SkillBar progress="82">
               <SQLIcon class="w-6 h-6 mr-2" />
               SQL
-            </span>
-            <div class="flex-1 bg-gray-200 rounded-full h-2">
-              <div class="w-[82%] bg-blue-600 h-2 rounded-full"></div>
-            </div>
+            </SkillBar>
           </li>
         </ul>
       </div>
       <div class="p-6 bg-gray-50 rounded-lg">
         <h3 class="text-xl font-semibold text-gray-900 mb-4">Tools & Others</h3>
         <ul class="space-y-2">
-          <li class="flex items-center gap-2">
-            <span class="w-24 flex items-center">
+          <li>
+            <SkillBar progress="92">
               <GitIcon class="w-6 h-6 mr-2" />
               Git
-            </span>
-            <div class="flex-1 bg-gray-200 rounded-full h-2">
-              <div class="w-[92%] bg-blue-600 h-2 rounded-full"></div>
-            </div>
+            </SkillBar>
           </li>
-          <li class="flex items-center gap-2">
-            <span class="w-24 flex items-center">
+          <li>
+            <SkillBar progress="78">
               <DockerIcon class="w-6 h-6 mr-2" />
               Docker
-            </span>
-            <div class="flex-1 bg-gray-200 rounded-full h-2">
-              <div class="w-[78%] bg-blue-600 h-2 rounded-full"></div>
-            </div>
+            </SkillBar>
           </li>
-          <li class="flex items-center gap-2">
-            <span class="w-24 flex items-center">
+          <li>
+            <SkillBar progress="70">
               <AWSIcon class="w-6 h-6 mr-2" />
               AWS
-            </span>
-            <div class="flex-1 bg-gray-200 rounded-full h-2">
-              <div class="w-[70%] bg-blue-600 h-2 rounded-full"></div>
-            </div>
+            </SkillBar>
           </li>
         </ul>
       </div>

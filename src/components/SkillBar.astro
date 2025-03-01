@@ -1,0 +1,12 @@
+---
+const { progress } = Astro.props;
+---
+
+<div class="flex items-center gap-2">
+  <span class="w-24 flex items-center">
+    <slot />
+  </span>
+  <div class="flex-1 bg-gray-200 rounded-full h-2">
+    <div class={`w-[${progress}%] bg-blue-600 h-2 rounded-full`}></div>
+  </div>
+</div>
