@@ -5,6 +5,17 @@ import { getLangFromUrl, useTranslations } from '../../../utils/i18n';
 import { languages } from '../../../i18n/ui';
 import { Image } from 'astro:assets';
 
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tech: string[];
+  features: string[];
+  demoUrl: string;
+  githubUrl: string;
+}
+
 export function getStaticPaths() {
   const projects = ['ecommerce-platform', 'task-management', 'ai-content-generator'];
   return Object.keys(languages).flatMap((lang) => 
@@ -14,11 +25,11 @@ export function getStaticPaths() {
   );
 }
 
-const { project } = Astro.params;
+const { project } = Astro.params as { project: string };
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const projects = {
+const projects: Record<string, Project> = {
   'ecommerce-platform': {
     id: 1,
     title: t('project1.title'),
