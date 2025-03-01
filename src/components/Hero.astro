@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { getLangFromUrl, useTranslations } from '../utils/i18n';
+import profilePicture from '../assets/profile_pic.jpeg';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -10,13 +12,7 @@ const t = useTranslations(lang);
   <div class="max-w-6xl mx-auto relative z-10">
     <div class="flex flex-col items-center">
       <div class="w-48 h-48 mb-8 rounded-full overflow-hidden shadow-xl">
-        <img 
-          src="./profile_pic.jpeg" 
-          alt="Manuel Gonzalez"
-          class="w-full h-full object-cover"
-          width="192"
-          height="192"
-        />
+        <Image src={profilePicture} alt="Manuel Gonzalez" width="192" height="192" />
       </div>
       <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 text-center">
         {t('hero.title')}
