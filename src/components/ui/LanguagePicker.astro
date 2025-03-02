@@ -30,7 +30,7 @@ const flags: Record<string, Flag> = {
 
 const languageOptions: LanguageOption[] = Object.entries(languages).map(([lang]) => {
   const path = pathname.replace(/^\/[^/]+/, '');
-  const href = lang === 'en' ? path || '/' : `/${lang}${path || '/'}`;
+  const href = `/${lang}${path || '/'}`;
   return {
     lang,
     href,
