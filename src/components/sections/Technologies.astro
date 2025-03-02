@@ -1,7 +1,8 @@
 ---
 import { getLangFromUrl, useTranslations } from '../../utils/i18n';
-import { CSSIcon, DockerIcon, GitIcon, NodeIcon, PythonIcon, ReactIcon, SQLIcon, AWSIcon, VueIcon } from '../../icons';
+import { GitIcon, NodeIcon, PythonIcon, ReactIcon, AWSIcon, VueIcon } from '../../icons';
 import SkillBar from '../ui/SkillBar.astro';
+import { TypeScriptIcon } from '../../icons';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -27,9 +28,9 @@ const t = useTranslations(lang);
             </SkillBar>
           </li>
           <li>
-            <SkillBar progress="80">
-              <CSSIcon class="w-6 h-6 mr-2" />
-              CSS/SCSS
+            <SkillBar progress="82">
+              <TypeScriptIcon class="w-6 h-6 mr-2" />
+              TS
             </SkillBar>
           </li>
         </ul>
@@ -49,12 +50,7 @@ const t = useTranslations(lang);
               Python
             </SkillBar>
           </li>
-          <li>
-            <SkillBar progress="82">
-              <SQLIcon class="w-6 h-6 mr-2" />
-              SQL
-            </SkillBar>
-          </li>
+         
         </ul>
       </div>
       <div class="p-6 bg-gray-50 rounded-lg transition-transform duration-500 hover:scale-110">
@@ -64,12 +60,6 @@ const t = useTranslations(lang);
             <SkillBar progress="92">
               <GitIcon class="w-6 h-6 mr-2" />
               Git
-            </SkillBar>
-          </li>
-          <li>
-            <SkillBar progress="78">
-              <DockerIcon class="w-6 h-6 mr-2" />
-              Docker
             </SkillBar>
           </li>
           <li>
