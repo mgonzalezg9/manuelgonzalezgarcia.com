@@ -13,7 +13,7 @@ const t = useTranslations(lang);
     <h2 class="text-3xl font-bold text-gray-900 mb-8">{t('skills.title')}</h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       <div class="p-6 bg-gray-50 rounded-lg transition-transform duration-500 hover:scale-110">
-        <h3 class="text-xl font-semibold text-gray-900 mb-4">Frontend</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">{t('skills.frontend')}</h3>
         <ul class="space-y-2">
           <li>
             <SkillBar progress="90">
@@ -36,7 +36,7 @@ const t = useTranslations(lang);
         </ul>
       </div>
       <div class="p-6 bg-gray-50 rounded-lg transition-transform duration-500 hover:scale-110">
-        <h3 class="text-xl font-semibold text-gray-900 mb-4">Backend</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">{t('skills.backend')}</h3>
         <ul class="space-y-2">
           <li>
             <SkillBar progress="88">
@@ -50,11 +50,10 @@ const t = useTranslations(lang);
               Python
             </SkillBar>
           </li>
-         
         </ul>
       </div>
       <div class="p-6 bg-gray-50 rounded-lg transition-transform duration-500 hover:scale-110">
-        <h3 class="text-xl font-semibold text-gray-900 mb-4">Tools & Others</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">{t('skills.tools')}</h3>
         <ul class="space-y-2">
           <li>
             <SkillBar progress="92">
