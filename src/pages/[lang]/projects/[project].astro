@@ -12,8 +12,8 @@ type Project = {
   image: string;
   tech: string[];
   features: string[];
-  demoUrl: string;
-  githubUrl: string;
+  demoUrl?: string;
+  githubUrl?: string;
 };
 
 export function getStaticPaths() {
@@ -34,52 +34,43 @@ const projects: Record<string, Project> = {
     id: 1,
     title: t('project1.title'),
     description: t('project1.description'),
-    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&h=600',
-    tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    image: 'https://images.unsplash.com/photo-1592601250984-da0dc45e25f7?auto=format&fit=crop&w=1200&h=600',
+    tech: ['React Native', 'Expo', 'TypeScript'],
     features: [
       t('project1.feature1'),
       t('project1.feature2'),
       t('project1.feature3'),
       t('project1.feature4'),
       t('project1.feature5'),
-      t('project1.feature6')
     ],
-    demoUrl: 'https://demo-ecommerce.example.com',
-    githubUrl: 'https://github.com/example/ecommerce'
+    demoUrl: 'https://play.google.com/store/apps/details?id=com.mgonzalezg9.Sweather',
+    githubUrl: 'https://github.com/mgonzalezg9/Sweather',
   },
   'i18n-translator': {
     id: 2,
     title: t('project2.title'),
     description: t('project2.description'),
-    image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=1200&h=600',
-    tech: ['React', 'Socket.io', 'Express', 'PostgreSQL'],
+    image: 'https://images.unsplash.com/photo-1494435658045-a657e4a01bcc?auto=format&fit=crop&w=1200&h=600',
+    tech: ['Node.js', 'TypeScript', 'Puppeteer'],
     features: [
       t('project2.feature1'),
       t('project2.feature2'),
       t('project2.feature3'),
-      t('project2.feature4'),
-      t('project2.feature5'),
-      t('project2.feature6')
     ],
-    demoUrl: 'https://demo-tasks.example.com',
-    githubUrl: 'https://github.com/example/tasks'
+    githubUrl: 'https://github.com/mgonzalezg9/i18n-translator'
   },
   'deplug': {
     id: 3,
     title: t('project3.title'),
     description: t('project3.description'),
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&h=600',
-    tech: ['React', 'OpenAI API', 'Node.js', 'Redis'],
+    image: 'https://images.unsplash.com/photo-1573166364266-356ef04ae798?auto=format&fit=crop&w=1200&h=600',
+    tech: ['React.js', 'Java', 'Eclipse IDE'],
     features: [
       t('project3.feature1'),
       t('project3.feature2'),
       t('project3.feature3'),
-      t('project3.feature4'),
-      t('project3.feature5'),
-      t('project3.feature6')
     ],
-    demoUrl: 'https://demo-ai.example.com',
-    githubUrl: 'https://github.com/example/ai-content'
+    demoUrl: 'https://www.youtube.com/watch?v=Ez2xGGNWyUg',
   }
 };
 
@@ -106,8 +97,8 @@ const projectData = projects[project];
         src={projectData.image} 
         alt={projectData.title}
         class="w-full rounded-xl mb-8"
-        height={400}
         width={1200}
+        height={600}
       />
 
       <h1 class="text-4xl font-bold text-gray-900 mb-4">
@@ -150,28 +141,33 @@ const projectData = projects[project];
       </div>
 
       <div class="flex gap-4">
-        <a
-          href={projectData.demoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-flex items-center"
-        >
-          {t('projects.liveDemo')}
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-          </svg>
-        </a>
-        <a
-          href={projectData.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="bg-gray-100 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors inline-flex items-center"
-        >
-          {t('projects.sourceCode')}
-          <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-          </svg>
-        </a>
+        {projectData.demoUrl && ( 
+          <a
+            href={projectData.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-flex items-center"
+          >
+            {t('projects.liveDemo')}
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </a>
+        )}
+
+        {projectData.githubUrl && ( 
+          <a
+            href={projectData.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-gray-100 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors inline-flex items-center"
+          >
+            {t('projects.sourceCode')}
+            <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+          )}
       </div>
     </div>
   </main>
