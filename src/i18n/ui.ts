@@ -72,15 +72,15 @@ export const ui = {
       "experience.current": "Current",
       "experience.company1.name": "Kairon Labs",
       "experience.company1.role": "Full Stack Developer",
-      "experience.company1.period": "Feb - Present",
+      "experience.company1.period": "Jun 2024 - Present",
       "experience.company1.description": "Made impactful contributions to a 3-year-old crypto trading platform built with Next.js and Tanstack Query. Became an integral member of a 7-developer team by actively performing code reviews and consistently pushing high-quality code to production.",
       "experience.company2.name": "Inbentus",
       "experience.company2.role": "Software Engineer",
-      "experience.company2.period": "Jul - Aug",
+      "experience.company2.period": "Feb 2022 - Jan 2024",
       "experience.company2.description": "Reduced around 80% of the technical debt by refactoring MVP code in adherence to SOLID principles and Vue best practices. Successfully orchestrated the precise release and deployment of 16 new software versions, ensuring seamless implementation and adherence to planning. Achieved an outstanding 87% test coverage, systematically addressing each product requirement and ensuring comprehensive quality assurance. Achieved a 41% reduction in the Electron web application boot time by strategically organizing systemd services.",
       "experience.company3.name": "CarsBarter",
       "experience.company3.role": "Full Stack Developer",
-      "experience.company3.period": "Jan - May",
+      "experience.company3.period": "Jul 2021 - Feb 2022",
       "experience.company3.description": "Maintained the integrity of a production application within a 5-developer Scrum team, adeptly resolving bugs with a focus on user activity and log analysis. Elevated CarsBarter's web traffic significantly by creating a blog, hosting more than 100 impactful blog posts. Contributed significantly to 2 consultancy projects: Calculers and Inbentus."
   },  
   es: {
