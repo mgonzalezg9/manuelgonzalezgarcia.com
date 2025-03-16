@@ -77,7 +77,8 @@ export const ui = {
       "experience.company3.name": "CarsBarter",
       "experience.company3.role": "Full Stack Developer",
       "experience.company3.period": "Jul 2021 - Feb 2022",
-      "experience.company3.description": "Maintained the integrity of a production application within a 5-developer Scrum team, adeptly resolving bugs with a focus on user activity and log analysis. Elevated CarsBarter's web traffic significantly by creating a blog, hosting more than 100 impactful blog posts. Contributed significantly to 2 consultancy projects: Calculers and Inbentus."
+      "experience.company3.description": "Maintained the integrity of a production application within a 5-developer Scrum team, adeptly resolving bugs with a focus on user activity and log analysis. Elevated CarsBarter's web traffic significantly by creating a blog, hosting more than 100 impactful blog posts. Contributed significantly to 2 consultancy projects: Calculers and Inbentus.",
+      "footer.designedBy": "Manuel Gonzalez Garcia - Designed with Tailwind and Astro",
   },  
   es: {
     'nav.about': 'Sobre mí',
@@ -157,6 +158,7 @@ export const ui = {
     'experience.company3.name': 'CarsBarter',
     'experience.company3.role': 'Desarrollador Full Stack',
     'experience.company3.period': 'Jul 2021 - Feb 2022',
-    'experience.company3.description': 'Mantuve la integridad de una aplicación de producción dentro de un equipo Scrum de 5 desarrolladores, resolviendo hábilmente errores con un enfoque en la actividad del usuario y el análisis de registros. Elevé significativamente el tráfico web de CarsBarter al crear un blog, alojando más de 100 publicaciones de blog impactantes. Contribuí significativamente a 2 proyectos de consultoría: Calculers e Inbentus.'
+    'experience.company3.description': 'Mantuve la integridad de una aplicación de producción dentro de un equipo Scrum de 5 desarrolladores, resolviendo hábilmente errores con un enfoque en la actividad del usuario y el análisis de registros. Elevé significativamente el tráfico web de CarsBarter al crear un blog, alojando más de 100 publicaciones de blog impactantes. Contribuí significativamente a 2 proyectos de consultoría: Calculers e Inbentus.',
+    "footer.designedBy": "Manuel Gonzalez Garcia - Diseñado con Tailwind y Astro",
   }
 } as const;

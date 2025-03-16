@@ -8,6 +8,7 @@ import Projects from '../../components/sections/Projects.astro';
 import Technologies from '../../components/sections/Technologies.astro';
 import Contact from '../../components/sections/Contact.astro';
 import { languages } from '../../i18n/ui';
+import Footer from '../../components/sections/Footer.astro';
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({
@@ -27,5 +28,6 @@ const { lang } = Astro.params;
     <Projects />
     <Technologies />
     <Contact />
+    <Footer />
   </main>
 </Layout>
