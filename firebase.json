@@ -8,6 +8,9 @@
     ],
     "frameworksBackend": {
       "region": "europe-west1"
+    },
+    "i18n": {
+      "root": "/"
     }
   }
 }
