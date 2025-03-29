@@ -13,7 +13,10 @@ const companies = [
     name: t('experience.company1.name'),
     role: t('experience.company1.role'),
     period: t('experience.company1.period'),
-    description: t('experience.company1.description'),
+    descriptions: [
+      t('experience.company1.description1'),
+      t('experience.company1.description2'),
+    ],
     current: true,
     logo: KaironLabsLogo,
   },
@@ -21,7 +24,12 @@ const companies = [
     name: t('experience.company2.name'),
     role: t('experience.company2.role'),
     period: t('experience.company2.period'),
-    description: t('experience.company2.description'),
+    descriptions: [
+      t('experience.company2.description1'),
+      t('experience.company2.description2'),
+      t('experience.company2.description3'),
+      t('experience.company2.description4'),
+    ],
     current: false,
     logo: InbentusLogo,
   },
@@ -29,7 +37,11 @@ const companies = [
     name: t('experience.company3.name'),
     role: t('experience.company3.role'),
     period: t('experience.company3.period'),
-    description: t('experience.company3.description'),
+    descriptions: [
+      t('experience.company3.description1'),
+      t('experience.company3.description2'),
+      t('experience.company3.description3'),
+    ],
     current: false,
     logo: CarsbarterLogo,
   },
@@ -64,7 +76,11 @@ const companies = [
               )}
             </div>
           </div>
-          <p class="text-gray-600 ml-16">{company.description}</p>
+          <ul class="text-gray-600 ml-16 list-disc">
+            {company.descriptions.map((desc) => (
+              <li>{desc}</li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>
