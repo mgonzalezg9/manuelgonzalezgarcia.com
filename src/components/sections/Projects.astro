@@ -1,6 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import { getLangFromUrl, useTranslations } from '../../utils/i18n';
+import sweatherImg from '../../assets/sweather.jpeg';
+import i18nImg from '../../assets/i18n_translator.jpeg';
+import deplugImg from '../../assets/deplug.jpeg';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -10,7 +13,7 @@ const projects = [
     id: 1,
     title: t('project1.title'),
     description: t('project1.description'),
-    image: 'https://images.unsplash.com/photo-1592601250984-da0dc45e25f7?auto=format&fit=crop&w=800&h=450',
+    image: sweatherImg,
     tech: ['React Native', 'Expo', 'TypeScript'],
     slug: 'sweather'
   },
@@ -18,7 +21,7 @@ const projects = [
     id: 2,
     title: t('project2.title'),
     description: t('project2.description'),
-    image: 'https://images.unsplash.com/photo-1494435658045-a657e4a01bcc?auto=format&fit=crop&w=800&h=450',
+    image: i18nImg,
     tech: ['Node.js', 'TypeScript', 'Puppeteer'],
     slug: 'i18n-translator'
   },
@@ -26,7 +29,7 @@ const projects = [
     id: 3,
     title: t('project3.title'),
     description: t('project3.description'),
-    image: 'https://images.unsplash.com/photo-1573166364266-356ef04ae798?auto=format&fit=crop&w=800&h=450',
+    image: deplugImg,
     tech: ['React.js', 'Java', 'Eclipse IDE'],
     slug: 'deplug'
   }
