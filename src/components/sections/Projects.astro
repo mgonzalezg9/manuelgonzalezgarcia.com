@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { getLangFromUrl, useTranslations } from '../../utils/i18n';
 import sweatherImg from '../../assets/sweather.jpeg';
 import i18nImg from '../../assets/i18n_translator.jpeg';
-import deplugImg from '../../assets/deplug.jpeg';
+import benitogonzalezsaxImg from '../../assets/benitogonzalezsax.png';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -13,25 +13,25 @@ const projects = [
     id: 1,
     title: t('project1.title'),
     description: t('project1.description'),
-    image: sweatherImg,
-    tech: ['React Native', 'Expo', 'TypeScript'],
-    slug: 'sweather'
+    image: benitogonzalezsaxImg,
+    tech: ['Astro', 'Tailwind', 'TypeScript'],
+    slug: 'benitogonzalezsax'
   },
   {
     id: 2,
     title: t('project2.title'),
     description: t('project2.description'),
-    image: i18nImg,
-    tech: ['Node.js', 'TypeScript', 'Puppeteer'],
-    slug: 'i18n-translator'
+    image: sweatherImg,
+    tech: ['React Native', 'Expo', 'TypeScript'],
+    slug: 'sweather'
   },
   {
     id: 3,
     title: t('project3.title'),
     description: t('project3.description'),
-    image: deplugImg,
-    tech: ['React.js', 'Java', 'Eclipse IDE'],
-    slug: 'deplug'
+    image: i18nImg,
+    tech: ['Node.js', 'TypeScript', 'Puppeteer'],
+    slug: 'i18n-translator'
   }
 ];
 ---

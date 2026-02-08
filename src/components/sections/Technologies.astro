@@ -1,8 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '../../utils/i18n';
-import { GitIcon, NodeIcon, PythonIcon, ReactIcon, AWSIcon, VueIcon } from '../../icons';
+import { GitIcon, NodeIcon, PythonIcon, ReactIcon, AWSIcon, VueIcon, TypeScriptIcon } from '../../icons';
 import SkillBar from '../ui/SkillBar.astro';
-import { TypeScriptIcon } from '../../icons';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -22,15 +21,15 @@ const t = useTranslations(lang);
             </SkillBar>
           </li>
           <li>
-            <SkillBar progress="75">
-              <VueIcon class="w-6 h-6 mr-2" />
-              Vue.js
-            </SkillBar>
-          </li>
-          <li>
             <SkillBar progress="82">
               <TypeScriptIcon class="w-6 h-6 mr-2" />
               TS
+            </SkillBar>
+          </li>
+          <li>
+            <SkillBar progress="60">
+              <VueIcon class="w-6 h-6 mr-2" />
+              Vue.js
             </SkillBar>
           </li>
         </ul>
@@ -39,15 +38,15 @@ const t = useTranslations(lang);
         <h3 class="text-xl font-semibold text-gray-900 mb-4">{t('skills.backend')}</h3>
         <ul class="space-y-2">
           <li>
-            <SkillBar progress="88">
-              <NodeIcon class="w-6 h-6 mr-2" />
-              Node.js
+            <SkillBar progress="82">
+              <PythonIcon class="w-6 h-6 mr-2" />
+              Python
             </SkillBar>
           </li>
           <li>
-            <SkillBar progress="75">
-              <PythonIcon class="w-6 h-6 mr-2" />
-              Python
+            <SkillBar progress="70">
+              <NodeIcon class="w-6 h-6 mr-2" />
+              Node.js
             </SkillBar>
           </li>
         </ul>
@@ -56,13 +55,19 @@ const t = useTranslations(lang);
         <h3 class="text-xl font-semibold text-gray-900 mb-4">{t('skills.tools')}</h3>
         <ul class="space-y-2">
           <li>
-            <SkillBar progress="92">
+            <SkillBar progress="80">
+              <div class="w-5 h-5 bg-black mr-3 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)]" />
+              Web3
+            </SkillBar>
+          </li>
+          <li>
+            <SkillBar progress="75">
               <GitIcon class="w-6 h-6 mr-2" />
               Git
             </SkillBar>
           </li>
           <li>
-            <SkillBar progress="70">
+            <SkillBar progress="68">
               <AWSIcon class="w-6 h-6 mr-2" />
               AWS
             </SkillBar>

@@ -6,7 +6,7 @@ import { languages } from '../../../i18n/ui';
 import { Image } from 'astro:assets';
 import sweatherImg from '../../../assets/sweather.jpeg';
 import i18nImg from '../../../assets/i18n_translator.jpeg';
-import deplugImg from '../../../assets/deplug.jpeg';
+import benitogonzalezsaxImg from '../../../assets/benitogonzalezsax.png';
 
 type Project = {
   id: number;
@@ -20,7 +20,7 @@ type Project = {
 };
 
 export function getStaticPaths() {
-  const projects = ['sweather', 'i18n-translator', 'deplug'];
+  const projects = ['benitogonzalezsax', 'sweather', 'i18n-translator'];
   return Object.keys(languages).flatMap((lang) =>
     projects.map((project) => ({
       params: { lang, project }
@@ -33,48 +33,49 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const projects: Record<string, Project> = {
-  'sweather': {
+  'benitogonzalezsax': {
     id: 1,
     title: t('project1.title'),
     description: t('project1.description'),
-    image: sweatherImg,
-    tech: ['React Native', 'Expo', 'TypeScript'],
+    image: benitogonzalezsaxImg,
+    tech: ['Astro', 'Tailwind', 'TypeScript'],
     features: [
       t('project1.feature1'),
       t('project1.feature2'),
       t('project1.feature3'),
-      t('project1.feature4'),
-      t('project1.feature5'),
+    ],
+    demoUrl: 'https://benitogonzalezsax.com',
+    githubUrl: 'https://github.com/mgonzalezg9/benitogonzalezsax.com',
+  },
+  'sweather': {
+    id: 2,
+    title: t('project2.title'),
+    description: t('project2.description'),
+    image: sweatherImg,
+    tech: ['React Native', 'Expo', 'TypeScript'],
+    features: [
+      t('project2.feature1'),
+      t('project2.feature2'),
+      t('project2.feature3'),
+      t('project2.feature4'),
+      t('project2.feature5'),
     ],
     demoUrl: 'https://play.google.com/store/apps/details?id=com.mgonzalezg9.Sweather',
     githubUrl: 'https://github.com/mgonzalezg9/Sweather',
   },
   'i18n-translator': {
-    id: 2,
-    title: t('project2.title'),
-    description: t('project2.description'),
-    image: i18nImg,
-    tech: ['Node.js', 'TypeScript', 'Puppeteer'],
-    features: [
-      t('project2.feature1'),
-      t('project2.feature2'),
-      t('project2.feature3'),
-    ],
-    demoUrl: 'https://www.youtube.com/watch?v=_RVOTMkBIpw',
-    githubUrl: 'https://github.com/mgonzalezg9/i18n-translator'
-  },
-  'deplug': {
     id: 3,
     title: t('project3.title'),
     description: t('project3.description'),
-    image: deplugImg,
-    tech: ['React.js', 'Java', 'Eclipse IDE'],
+    image: i18nImg,
+    tech: ['Node.js', 'TypeScript', 'Puppeteer'],
     features: [
       t('project3.feature1'),
       t('project3.feature2'),
       t('project3.feature3'),
     ],
-    demoUrl: 'https://www.youtube.com/watch?v=Ez2xGGNWyUg',
+    demoUrl: 'https://www.youtube.com/watch?v=_RVOTMkBIpw',
+    githubUrl: 'https://github.com/mgonzalezg9/i18n-translator'
   }
 };
 

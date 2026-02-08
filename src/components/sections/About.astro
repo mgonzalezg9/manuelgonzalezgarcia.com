@@ -3,6 +3,9 @@ import { getLangFromUrl, useTranslations } from '../../utils/i18n';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const startDate = new Date(2021, 6, 1); // July 1st, 2021
+const experienceYears = Math.floor((new Date().getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 365));
 ---
 
 <section id="about" class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
@@ -26,7 +29,7 @@ const t = useTranslations(lang);
           </li>
           <li class="flex flex-col gap-1 lg:flex-row ">
             <span class="w-32 text-gray-600">{t('about.experience')}:</span>
-            <span class="font-medium">{t('about.experienceValue')}</span>
+            <span class="font-medium">+{experienceYears} {t('about.experienceValue')}</span>
           </li>
           <li class="flex flex-col gap-1 lg:flex-row">
             <span class="w-32 text-gray-600">{t('about.education')}:</span>
