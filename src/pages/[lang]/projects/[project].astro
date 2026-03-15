@@ -6,15 +6,13 @@ import { languages } from '../../../i18n/ui';
 import { Image } from 'astro:assets';
 import sweatherImg from '../../../assets/sweather.jpeg';
 import benitogonzalezsaxImg from '../../../assets/benitogonzalezsax.png';
-
-/** Unsplash image (black computer monitor) tailored to detail hero 1200×600 */
-const trendStrategyImgUrl = 'https://images.unsplash.com/photo-1621264448270-9ef00e88a935?w=1200&h=600&fit=crop&fm=jpg&q=80';
+import trendStrategyImg from '../../../assets/trend-strategy.jpeg';
 
 type Project = {
   id: number;
   title: string;
   description: string;
-  image: ImageMetadata | string;
+  image: ImageMetadata;
   tech: string[];
   features: string[];
   demoUrl?: string;
@@ -69,7 +67,7 @@ const projects: Record<string, Project> = {
     id: 3,
     title: t('project3.title'),
     description: t('project3.description'),
-    image: trendStrategyImgUrl,
+    image: trendStrategyImg,
     tech: ['Python', 'Telegram API', 'ccxt', 'Linux server'],
     features: [
       t('project3.feature1'),
@@ -98,26 +96,15 @@ const projectData = projects[project];
         </a>
       </div>
 
-      {typeof projectData.image === 'string' ? (
-        <img
-          src={projectData.image}
-          alt={projectData.title}
-          class="w-full rounded-xl mb-8 object-cover"
-          width={1200}
-          height={600}
-          loading="eager"
-        />
-      ) : (
-        <Image
-          src={projectData.image}
-          alt={projectData.title}
-          class="w-full rounded-xl mb-8"
-          width={1200}
-          height={600}
-          fit="cover"
-          loading="eager"
-        />
-      )}
+      <Image
+        src={projectData.image}
+        alt={projectData.title}
+        class="w-full rounded-xl mb-8"
+        width={1200}
+        height={600}
+        fit="cover"
+        loading="eager"
+      />
 
       <h1 class="text-4xl font-bold text-gray-900 mb-4">
         {projectData.title}
