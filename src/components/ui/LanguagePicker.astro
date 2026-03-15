@@ -1,16 +1,18 @@
 ---
 import { Image } from 'astro:assets';
 import { languages } from '../../i18n/ui';
+import flagEn from '../../assets/flag-en.png';
+import flagEs from '../../assets/flag-es.png';
 
 type Flag = {
-  icon: string;
+  icon: ImageMetadata;
   label: string;
 };
 
 type LanguageOption = {
   lang: string;
   href: string;
-  icon: string;
+  icon: ImageMetadata;
   label: string;
 };
 
@@ -18,14 +20,8 @@ const { currentLang } = Astro.props as { currentLang: string };
 const { pathname } = Astro.url;
 
 const flags: Record<string, Flag> = {
-  en: {
-    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/2560px-Flag_of_the_United_Kingdom_%283-5%29.svg.png",
-    label: 'English'
-  },
-  es: {
-    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Flag_of_Spain_%28civil%29.svg/1280px-Flag_of_Spain_%28civil%29.svg.png",
-    label: 'Español'
-  }
+  en: { icon: flagEn, label: 'English' },
+  es: { icon: flagEs, label: 'Español' }
 };
 
 const languageOptions: LanguageOption[] = Object.entries(languages).map(([lang]) => {
@@ -53,12 +49,12 @@ const languageOptions: LanguageOption[] = Object.entries(languages).map(([lang])
     ))}
   </select>
   <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-2">
-     <Image 
-        src={flags[currentLang].icon} 
-        alt={`${flags[currentLang].label} logo`}
-        width="24"
-        height="24"
-      />
+    <Image
+      src={flags[currentLang].icon}
+      alt={`${flags[currentLang].label} flag`}
+      width={24}
+      height={24}
+    />
   </div>
   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
     <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

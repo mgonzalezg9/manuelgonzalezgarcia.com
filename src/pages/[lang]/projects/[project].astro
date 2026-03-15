@@ -5,8 +5,8 @@ import { getLangFromUrl, useTranslations } from '../../../utils/i18n';
 import { languages } from '../../../i18n/ui';
 import { Image } from 'astro:assets';
 import sweatherImg from '../../../assets/sweather.jpeg';
-import i18nImg from '../../../assets/i18n_translator.jpeg';
 import benitogonzalezsaxImg from '../../../assets/benitogonzalezsax.png';
+import trendStrategyImg from '../../../assets/trend-strategy.jpeg';
 
 type Project = {
   id: number;
@@ -20,7 +20,7 @@ type Project = {
 };
 
 export function getStaticPaths() {
-  const projects = ['benitogonzalezsax', 'sweather', 'i18n-translator'];
+  const projects = ['benitogonzalezsax', 'trend-strategy', 'sweather'];
   return Object.keys(languages).flatMap((lang) =>
     projects.map((project) => ({
       params: { lang, project }
@@ -63,19 +63,17 @@ const projects: Record<string, Project> = {
     demoUrl: 'https://play.google.com/store/apps/details?id=com.mgonzalezg9.Sweather',
     githubUrl: 'https://github.com/mgonzalezg9/Sweather',
   },
-  'i18n-translator': {
+  'trend-strategy': {
     id: 3,
     title: t('project3.title'),
     description: t('project3.description'),
-    image: i18nImg,
-    tech: ['Node.js', 'TypeScript', 'Puppeteer'],
+    image: trendStrategyImg,
+    tech: ['Python', 'Telegram API', 'ccxt', 'Linux server'],
     features: [
       t('project3.feature1'),
       t('project3.feature2'),
       t('project3.feature3'),
     ],
-    demoUrl: 'https://www.youtube.com/watch?v=_RVOTMkBIpw',
-    githubUrl: 'https://github.com/mgonzalezg9/i18n-translator'
   }
 };
 
@@ -99,7 +97,7 @@ const projectData = projects[project];
       </div>
 
       <Image
-        src={projectData.image} 
+        src={projectData.image}
         alt={projectData.title}
         class="w-full rounded-xl mb-8"
         width={1200}

@@ -2,8 +2,8 @@
 import { Image } from 'astro:assets';
 import { getLangFromUrl, useTranslations } from '../../utils/i18n';
 import sweatherImg from '../../assets/sweather.jpeg';
-import i18nImg from '../../assets/i18n_translator.jpeg';
 import benitogonzalezsaxImg from '../../assets/benitogonzalezsax.png';
+import trendStrategyImg from '../../assets/trend-strategy.jpeg';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -19,19 +19,19 @@ const projects = [
   },
   {
     id: 2,
+    title: t('project3.title'),
+    description: t('project3.description'),
+    image: trendStrategyImg,
+    tech: ['Python', 'Telegram API', 'ccxt', 'Linux server'],
+    slug: 'trend-strategy'
+  },
+  {
+    id: 3,
     title: t('project2.title'),
     description: t('project2.description'),
     image: sweatherImg,
     tech: ['React Native', 'Expo', 'TypeScript'],
     slug: 'sweather'
-  },
-  {
-    id: 3,
-    title: t('project3.title'),
-    description: t('project3.description'),
-    image: i18nImg,
-    tech: ['Node.js', 'TypeScript', 'Puppeteer'],
-    slug: 'i18n-translator'
   }
 ];
 ---
@@ -44,7 +44,7 @@ const projects = [
         <div class="bg-white rounded-lg shadow-md overflow-hidden project-card transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
           <div class="aspect-video overflow-hidden">
             <Image
-              src={project.image} 
+              src={project.image}
               alt={project.title}
               class="transition-transform duration-500 hover:scale-110"
               width={800}
