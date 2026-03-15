@@ -22,7 +22,7 @@ type Project = {
 };
 
 export function getStaticPaths() {
-  const projects = ['benitogonzalezsax', 'sweather', 'trend-strategy'];
+  const projects = ['benitogonzalezsax', 'trend-strategy', 'sweather'];
   return Object.keys(languages).flatMap((lang) =>
     projects.map((project) => ({
       params: { lang, project }
