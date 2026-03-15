@@ -2,8 +2,10 @@
 import { Image } from 'astro:assets';
 import { getLangFromUrl, useTranslations } from '../../utils/i18n';
 import sweatherImg from '../../assets/sweather.jpeg';
-import i18nImg from '../../assets/i18n_translator.jpeg';
 import benitogonzalezsaxImg from '../../assets/benitogonzalezsax.png';
+
+/** Unsplash image (black computer monitor) tailored to card aspect ratio 16:9 (800×450) */
+const trendStrategyImgUrl = 'https://images.unsplash.com/photo-1621264448270-9ef00e88a935?w=800&h=450&fit=crop&fm=jpg&q=80';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -29,9 +31,9 @@ const projects = [
     id: 3,
     title: t('project3.title'),
     description: t('project3.description'),
-    image: i18nImg,
-    tech: ['Node.js', 'TypeScript', 'Puppeteer'],
-    slug: 'i18n-translator'
+    image: trendStrategyImgUrl,
+    tech: ['Python', 'Telegram API', 'ccxt', 'Linux server'],
+    slug: 'trend-strategy'
   }
 ];
 ---
@@ -43,13 +45,24 @@ const projects = [
       {projects.map((project) => (
         <div class="bg-white rounded-lg shadow-md overflow-hidden project-card transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
           <div class="aspect-video overflow-hidden">
-            <Image
-              src={project.image} 
-              alt={project.title}
-              class="transition-transform duration-500 hover:scale-110"
-              width={800}
-              height={450}
-            />
+            {typeof project.image === 'string' ? (
+              <img
+                src={project.image}
+                alt={project.title}
+                class="transition-transform duration-500 hover:scale-110 w-full h-full object-cover"
+                width={800}
+                height={450}
+                loading="lazy"
+              />
+            ) : (
+              <Image
+                src={project.image}
+                alt={project.title}
+                class="transition-transform duration-500 hover:scale-110"
+                width={800}
+                height={450}
+              />
+            )}
           </div>
           <div class="p-6">
             <h3 class="text-xl font-semibold text-gray-900 mb-2">

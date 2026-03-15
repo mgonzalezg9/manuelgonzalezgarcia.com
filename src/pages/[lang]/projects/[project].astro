@@ -5,14 +5,16 @@ import { getLangFromUrl, useTranslations } from '../../../utils/i18n';
 import { languages } from '../../../i18n/ui';
 import { Image } from 'astro:assets';
 import sweatherImg from '../../../assets/sweather.jpeg';
-import i18nImg from '../../../assets/i18n_translator.jpeg';
 import benitogonzalezsaxImg from '../../../assets/benitogonzalezsax.png';
+
+/** Unsplash image (black computer monitor) tailored to detail hero 1200×600 */
+const trendStrategyImgUrl = 'https://images.unsplash.com/photo-1621264448270-9ef00e88a935?w=1200&h=600&fit=crop&fm=jpg&q=80';
 
 type Project = {
   id: number;
   title: string;
   description: string;
-  image: ImageMetadata;
+  image: ImageMetadata | string;
   tech: string[];
   features: string[];
   demoUrl?: string;
@@ -20,7 +22,7 @@ type Project = {
 };
 
 export function getStaticPaths() {
-  const projects = ['benitogonzalezsax', 'sweather', 'i18n-translator'];
+  const projects = ['benitogonzalezsax', 'sweather', 'trend-strategy'];
   return Object.keys(languages).flatMap((lang) =>
     projects.map((project) => ({
       params: { lang, project }
@@ -63,19 +65,17 @@ const projects: Record<string, Project> = {
     demoUrl: 'https://play.google.com/store/apps/details?id=com.mgonzalezg9.Sweather',
     githubUrl: 'https://github.com/mgonzalezg9/Sweather',
   },
-  'i18n-translator': {
+  'trend-strategy': {
     id: 3,
     title: t('project3.title'),
     description: t('project3.description'),
-    image: i18nImg,
-    tech: ['Node.js', 'TypeScript', 'Puppeteer'],
+    image: trendStrategyImgUrl,
+    tech: ['Python', 'Telegram API', 'ccxt', 'Linux server'],
     features: [
       t('project3.feature1'),
       t('project3.feature2'),
       t('project3.feature3'),
     ],
-    demoUrl: 'https://www.youtube.com/watch?v=_RVOTMkBIpw',
-    githubUrl: 'https://github.com/mgonzalezg9/i18n-translator'
   }
 };
 
@@ -98,15 +98,26 @@ const projectData = projects[project];
         </a>
       </div>
 
-      <Image
-        src={projectData.image} 
-        alt={projectData.title}
-        class="w-full rounded-xl mb-8"
-        width={1200}
-        height={600}
-        fit="cover"
-        loading="eager"
-      />
+      {typeof projectData.image === 'string' ? (
+        <img
+          src={projectData.image}
+          alt={projectData.title}
+          class="w-full rounded-xl mb-8 object-cover"
+          width={1200}
+          height={600}
+          loading="eager"
+        />
+      ) : (
+        <Image
+          src={projectData.image}
+          alt={projectData.title}
+          class="w-full rounded-xl mb-8"
+          width={1200}
+          height={600}
+          fit="cover"
+          loading="eager"
+        />
+      )}
 
       <h1 class="text-4xl font-bold text-gray-900 mb-4">
         {projectData.title}
